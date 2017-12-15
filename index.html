@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <style>
+            body {
+                background-image: url("images/abused-child-1024x590.jpg");
+            }
+            .log-in{
+                border-color: #a7bfdc;
+                border-style: solid;
+                border-width: 5px;
+                padding: 25px;
+                margin-top: 25px;
+            }
+            .loginLeft{
+                float: left;
+                color: white;
+            }
+            .loginRight{
+                float: right;
+                color: white;
+            }
+            .loginRight img{
+                height: 125px;
+            }
+            .icons {
+                border-color: #a7bfdc;
+                border-style: solid;
+                border-width: 3px;
+                float: left;
+                width: 23%;
+                text-align: center;
+                margin-right: 5px;
+                background-color: white;
+            }
+            .loginRight div:hover{
+                border-color: darkblue;
+            }
+            .navbar img{
+                height: 30px;
+                margin: 0;
+            }
+        </style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="images/notAgainLogo.png"></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-1">
+                        <ul class="nav navbar-nav navbar-right">
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <div class="text-center">
+            <img src="images/notAgainLogo.png">
+        </div>
+        <div class="container log-in">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="col-lg-5 loginLeft">
+                        <form name="myForm" action="">
+                            <div class="form-group">
+                                <h2>Incident Reporter:</h2>
+                                <label for="user">User Name:</label>
+                                <input type="user" class="form-control" id="user" name="user" required>
+                                <div id="userError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd" name="password" required>
+                                <div id="passwordError"></div>
+                            </div>
+                            <button type="button" class="btn btn-block btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-5 loginRight">
+                        <h2>Account Registration</h2>
+                        <p>Please choose your profession below:</p>
+                        <a data-toggle="modal" href="#myModal"><div class="icons"><img src="images/socialWorker.png">Social Worker</div></a>
+                        <a data-toggle="modal" href="#myModal"><div class="icons"><img src="images/teacher.png">Education Field</div></a>
+                        <a data-toggle="modal" href="#myModal"><div class="icons"><img src="images/doctor.png">Medical Field</div></a>
+                        <a data-toggle="modal" href="#myModal"><div class="icons"><img src="images/police.png">Law Enforcement</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Register</h4>
+              </div>
+              <div class="modal-body">
+                    <form name="registerForm" ng-submit="registerVm.onRegisterBtnClicked(registerForm.$valid)" novalidate>
+                        <div class="form-group">
+                            <label for="username">First name </label>
+                            <input type="text" name="firstName" id="firstName"
+                                   class="form-control"
+                                   ng-model="registerVm.user.firstName"
+                                   required data-ng-maxlength="50" data-ng-minlength="2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Last name</label>
+                            <input type="text" name="lastName" id="Text1" class="form-control" ng-model="registerVm.user.lastName" required data-ng-maxlength="50" data-ng-minlength="2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Associated Organization</label>
+                            <input type="text" name="organization" id="Text1" class="form-control" ng-model="registerVm.user.organization" required data-ng-maxlength="50" data-ng-minlength="2" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Organization Email</label>
+                            <input type="email" name="email" id="email" class="form-control" ng-model="registerVm.user.email" pattern="^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password"
+                                   name="password" id="password" class="form-control"
+                                   ng-model="registerVm.user.password" ng-pattern="registerVm.passwordFormat" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password"
+                                   name="confirmPassword" id="confirmPassword" class="form-control"
+                                   ng-model="registerVm.user.confirmPassword"
+                                   compare-to="registerVm.user.password" required />
+                        </div>
+                        <div class="form-actions">
+                            <a type="button" class="btn btn-primary" href="search.html" >Register</a>
+                        </div>
+            
+                    </form>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+    </body>
+</html>
