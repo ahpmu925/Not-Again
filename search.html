@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <style>
+            body {
+            }
+            .log-in{
+                border-color: #a7bfdc;
+                border-style: solid;
+                border-width: 5px;
+                padding: 25px;
+                margin-top: 25px;
+            }
+            .loginLeft{
+                float: left;
+                color: #a7bfdc;
+            }
+            .loginRight{
+                float: right;
+                color: #a7bfdc;
+            }
+            .loginRight img{
+                height: 125px;
+            }
+            .icons {
+                border-color: #a7bfdc;
+                border-style: solid;
+                border-width: 3px;
+                float: left;
+                width: 23%;
+                text-align: center;
+                margin-right: 5px;
+                background-color: white;
+            }
+            .loginRight div:hover{
+                border-color: darkblue;
+            }
+            .navbar img{
+                height: 30px;
+                margin: 0;
+            }
+        </style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="images/notAgainLogo.png"></a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="top-navbar-1">
+                        <ul class="nav navbar-nav navbar-right">
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+       
+        <div class="container log-in">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="col-lg-5 loginLeft">
+                            <h2>Search by address</h2>
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Enter address" />
+                                    <span class="input-group-btn">
+                                        <a class="btn btn-info btn-lg" href="records.html">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-5 loginRight">
+                        <h2>Create New Record</h2>
+                        
+                        <a class="btn btn-block btn-primary" data-toggle="modal" href="#myModal"">Crete New Record</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Enter new record</h4>
+              </div>
+              <div class="modal-body">
+                    <form name="reportForm" ng-submit="reportVm.onSubmitBtnClicked(reportForm.$valid)" novalidate>
+                            <div class="form-group">
+                                <label for="date">Date </label>
+                                <input type="text" name="date" id="date"
+                                       class="form-control"
+                                       ng-model="reportVm.user.date"
+                                       required />
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" name="address" id="address" ng-model="reportVm.user.address" class="form-control" required data-ng-maxlength="50" data-ng-minlength="5" />
+                            </div>
+                            <div class="form-group">
+                                <label for="agency">Reporting Agency</label>
+                                <input type="text" name="agency" id="agency" class="form-control" ng-model="reportVm.user.agency" required data-ng-maxlength="50" data-ng-minlength="2" />
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Reporting Officer</label>
+                                <input type="text" name="officer" id="officer" class="form-control" ng-model="reportVm.user.officer" required data-ng-maxlength="50" data-ng-minlength="2" />
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Date of Birth</label>
+                                <input type="text" name="dob" id="dob" class="form-control" ng-model="reportVm.user.dob" required data-ng-maxlength="50" data-ng-minlength="2" />
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Report Number</label>
+                                <input type="text" name="number" id="Text1" class="form-control" ng-model="reportVm.user.number" required data-ng-maxlength="50" data-ng-minlength="2" />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-click="submitted= true;" class="btn btn-primary">Submit</button>
+                            </div>
+                    
+                        </form>
+              </div>
+             
+            </div>
+            
+          </div>
+        </div>
+    </body>
+</html>
